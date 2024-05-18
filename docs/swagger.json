@@ -1,0 +1,76 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "中央监护系统API接口文档",
+        "title": "中央监护系统",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/failed": {
+            "get": {
+                "description": "失败测试接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "测试相关接口"
+                ],
+                "summary": "失败测试",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/success": {
+            "get": {
+                "description": "成功测试接口",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "测试相关接口"
+                ],
+                "summary": "成功测试",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "result.Result": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "状态码",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "返回的数据"
+                },
+                "message": {
+                    "description": "提示信息",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

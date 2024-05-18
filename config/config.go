@@ -13,6 +13,7 @@ type config struct {
 	System system `yaml:"system"`
 	Logger logger `yaml:"logger"`
 	Mysql  mysql  `yaml:"mysql"`
+	Redis  redis  `yaml:"redis"`
 }
 
 // 系统配置
@@ -42,6 +43,13 @@ type mysql struct {
 	Charset  string `yaml:"charset"`
 	MaxIdle  int    `yaml:"max_idle"`
 	MaxOpen  int    `yaml:"max_open"`
+}
+
+// redis配置
+type redis struct {
+	Address  string `yaml:"address"`
+	Password string `yaml:"password"`
+	Db       int    `yaml:"db"`
 }
 
 var Config *config
