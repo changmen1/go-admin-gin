@@ -27,4 +27,6 @@ func register(router *gin.Engine) {
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/api/success", api.Success)
 	router.GET("/api/failed", api.Failed)
+	router.POST("/api/sysMenu/add", api.CreateSysMenu)
+
 }
