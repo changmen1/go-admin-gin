@@ -28,5 +28,7 @@ func register(router *gin.Engine) {
 	router.GET("/api/success", api.Success)
 	router.GET("/api/failed", api.Failed)
 	router.POST("/api/sysMenu/add", api.CreateSysMenu)
-
+	router.GET("/api/sysMenu/list", api.GetSysMenuList)
+	router.GET("/api/sysMenu/info", api.GetSysMenu)
+	router.PUT("/api/sysMenu/update", api.UpdateSysMenu)
 }

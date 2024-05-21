@@ -18,6 +18,27 @@ definitions:
       value:
         type: string
     type: object
+  model.UpdateSysMenuDto:
+    properties:
+      icon:
+        type: string
+      id:
+        type: integer
+      menuName:
+        type: string
+      menuStatus:
+        type: integer
+      menuType:
+        type: integer
+      parentId:
+        type: integer
+      sort:
+        type: integer
+      url:
+        type: string
+      value:
+        type: string
+    type: object
   result.Result:
     properties:
       code:
@@ -71,6 +92,64 @@ paths:
         required: true
         schema:
           $ref: '#/definitions/model.AddSysMenuDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      tags:
+      - 菜单相关接口
+  /api/sysMenu/info:
+    get:
+      description: 根据id查询菜单
+      parameters:
+      - description: 菜单id
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      tags:
+      - 菜单相关接口
+  /api/sysMenu/list:
+    get:
+      description: 查询菜单列表
+      parameters:
+      - description: 菜单名称
+        in: query
+        name: menuName
+        type: string
+      - description: 菜单状态
+        in: query
+        name: menuStatus
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/result.Result'
+      tags:
+      - 菜单相关接口
+  /api/sysMenu/update:
+    put:
+      description: 修改菜单
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.UpdateSysMenuDto'
       produces:
       - application/json
       responses:

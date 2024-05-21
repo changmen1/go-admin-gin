@@ -33,3 +33,16 @@ type AddSysMenuDto struct {
 	MenuStatus uint   `json:"menuStatus"`
 	Sort       uint   `json:"sort"`
 }
+
+// UpdateSysMenuDto 修改菜单参数
+type UpdateSysMenuDto struct {
+	ID         uint   `json:"id"`
+	ParentId   uint   `json:"parentId"`
+	MenuName   string `json:"menuName"`
+	Icon       string `json:"icon"`
+	Value      string `json:"value"`
+	MenuType   uint   `json:"menuType"`
+	Url        string `json:"url"`
+	MenuStatus uint   `json:"menuStatus"`
+	Sort       uint   `json:"sort"`
+}

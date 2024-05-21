@@ -84,6 +84,97 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/api/sysMenu/info": {
+            "get": {
+                "description": "根据id查询菜单",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "菜单相关接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "菜单id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sysMenu/list": {
+            "get": {
+                "description": "查询菜单列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "菜单相关接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "菜单名称",
+                        "name": "menuName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "菜单状态",
+                        "name": "menuStatus",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sysMenu/update": {
+            "put": {
+                "description": "修改菜单",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "菜单相关接口"
+                ],
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UpdateSysMenuDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -92,6 +183,38 @@ const docTemplate = `{
             "properties": {
                 "icon": {
                     "type": "string"
+                },
+                "menuName": {
+                    "type": "string"
+                },
+                "menuStatus": {
+                    "type": "integer"
+                },
+                "menuType": {
+                    "type": "integer"
+                },
+                "parentId": {
+                    "type": "integer"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UpdateSysMenuDto": {
+            "type": "object",
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "menuName": {
                     "type": "string"
